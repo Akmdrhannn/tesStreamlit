@@ -34,11 +34,11 @@ def preprocess_image(image):
     # Ubah citra menjadi grayscale jika belum
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # Resize gambar sesuai input model (misal: 150x150)
-    gray_image = cv2.resize(gray_image, (150, 150))
+    gray_image = cv2.resize(gray_image, (256, 256))
     # Normalisasi nilai piksel
     gray_image = gray_image / 255.0
     # Ubah bentuk gambar sesuai input model (batch_size, height, width, channels)
-    gray_image = gray_image.reshape(1, 150, 150, 1)
+    gray_image = gray_image.reshape(1, 256, 256, 3)
     return gray_image
 
 # Proses pewarnaan citra menggunakan model generator
