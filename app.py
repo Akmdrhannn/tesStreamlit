@@ -33,10 +33,12 @@ def load_model():
 def preprocess_image(image):
     # Ubah citra menjadi grayscale jika belum
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # Resize gambar sesuai input model (misal: 150x150)
+    # Resize gambar sesuai input model (misal: 256x256)
     gray_image = cv2.resize(gray_image, (256, 256))
     # Normalisasi nilai piksel
     gray_image = gray_image / 255.0
+    # Ubah bentuk gambar menjadi 3 channel
+    gray_image = np.stack([gray_image] * 3, axis=-1)  # Duplicate channel to create a 3-channel image
     # Ubah bentuk gambar sesuai input model (batch_size, height, width, channels)
     gray_image = gray_image.reshape(1, 256, 256, 3)
     return gray_image
@@ -61,7 +63,7 @@ def main():
 
     if uploaded_file is not None:
         # Baca file gambar yang diupload
-        image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
+        image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
         st.image(image, caption='Original Grayscale Image', use_column_width=True)
         
         # Preprocess gambar dan warnai menggunakan model
