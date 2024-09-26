@@ -54,17 +54,17 @@ def colorize_image(model, gray_image):
 
 # Streamlit UI
 def main():
-    st.title("Image Colorization with GAN")
+    st.title("Pewarnaan Citra Grayscale Menggunakan GAN")
 
-    st.write("Upload a grayscale image and see it colorized by the GAN model.")
+    st.write("Silahkan upload citra atau gambar grayscale yang akan diwarnai oleh model GAN.")
     
     # Upload gambar
-    uploaded_file = st.file_uploader("Choose a grayscale image", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Pilih gambar grayscale", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         # Baca file gambar yang diupload
         image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
-        st.image(image, caption='Original Grayscale Image', use_column_width=True)
+        st.image(image, caption='Citra Grayscale', use_column_width=True)
         
         # Preprocess gambar dan warnai menggunakan model
         gray_image = preprocess_image(image)
@@ -72,7 +72,7 @@ def main():
         color_image = colorize_image(model, gray_image)
         
         # Tampilkan hasil gambar berwarna
-        st.image(color_image, caption='Colorized Image', use_column_width=True)
+        st.image(color_image, caption='Hasil Pewarnaan', use_column_width=True)
 
 if __name__ == '__main__':
     main()
