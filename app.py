@@ -16,8 +16,8 @@ def download_file_from_google_drive(url, output):
 @st.cache_resource
 def load_model():
     # Download model JSON dan weights dari Google Drive
-    json_url = 'https://drive.google.com/uc?id=1ixMe8r52kR52mA-l4zypcoi_DU-0wZ9D'
-    weights_url = 'https://drive.google.com/uc?id=1Gr0L1EI3MQUJEDCTJXpJEfGykzzFbaUN'
+    json_url = 'https://drive.google.com/uc?id=1v46pG70CKMleuil1aeGbJdqI8RutxbVX'
+    weights_url = 'https://drive.google.com/uc?id=173GNh9ed4Yxib9rp_372O3Li-PALQZf6'
     
     download_file_from_google_drive(json_url, 'modelGenerator.json')
     download_file_from_google_drive(weights_url, 'modelGen.weights.h5')
