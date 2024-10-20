@@ -54,8 +54,30 @@ def colorize_image(model, gray_image):
 
 # Streamlit UI
 def main():
-    st.title("Pewarnaan Citra Grayscale Menggunakan GAN")
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-image: url('bg.jpg');
+            background-size: cover;
+        }
+        .center-image {
+            display: flex;
+            justify-content: center;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
+    st.title("Pewarnaan Citra Grayscale Menggunakan GAN")
+    
+    # Teks yang diminta
+    st.write("**_Conditional Generative Adversarial Networks_ (CGAN)** adalah metode yang menjadikan sebuah masukan atau _input_ -nya seperti sebuah kondisi. Merujuk pada _Conditional_, kondisi tersebut dapat digunakan terhadap _generator_ atau _discriminator_ sesuai kebutuhan pengguna sehingga CGAN dapat menghasilkan data buatan yang diinginkan menggunakan kondisi yang spesifik atau telah ditentukan sebelumnya. Pada penelitian ini, kondisi tersebut ialah citra _grayscale_ yang menjadi syarat dalam pelatihan model untuk menghasilkan pewarnaan.")
+    
+    # Tampilkan gambar di tengah
+    st.markdown('<div class="center-image"><img src="gambaranUmum.png" width="500"></div>', unsafe_allow_html=True)
+    
     st.write("Silahkan upload citra atau gambar grayscale yang akan diwarnai oleh model GAN.")
     
     # Upload gambar
