@@ -58,12 +58,15 @@ def main():
         """
         <style>
         .stApp {
-            background-image: url('bg.jpg');
+            background-image: url('https://raw.githubusercontent.com/Akmdrhannn/tesStreamlit/main/bg.jpg');
             background-size: cover;
         }
         .center-image {
             display: flex;
             justify-content: center;
+        }
+        .justified-text {
+        text-align: justify;
         }
         </style>
         """,
@@ -72,13 +75,12 @@ def main():
 
     st.title("Pewarnaan Citra Grayscale Menggunakan CGAN")
     
-    # Teks yang diminta
-    st.write("**_Conditional Generative Adversarial Networks_ (CGAN)** adalah metode yang menjadikan sebuah masukan atau _input_ -nya seperti sebuah kondisi. Merujuk pada _Conditional_, kondisi tersebut dapat digunakan terhadap _generator_ atau _discriminator_ sesuai kebutuhan pengguna sehingga CGAN dapat menghasilkan data buatan yang diinginkan menggunakan kondisi yang spesifik atau telah ditentukan sebelumnya. Pada penelitian ini, kondisi tersebut ialah citra _grayscale_ yang menjadi syarat dalam pelatihan model untuk menghasilkan pewarnaan.")
-    
+    # Teks deskripsi
+    st.markdown('<div class="justified-text">**_Conditional Generative Adversarial Networks_ (CGAN)** adalah metode yang menjadikan sebuah masukan atau _input_ -nya seperti sebuah kondisi. Merujuk pada _Conditional_, kondisi tersebut dapat digunakan terhadap _generator_ atau _discriminator_ sesuai kebutuhan pengguna sehingga CGAN dapat menghasilkan data buatan yang diinginkan menggunakan kondisi yang spesifik atau telah ditentukan sebelumnya. Pada penelitian ini, kondisi tersebut ialah citra _grayscale_ yang menjadi syarat dalam pelatihan model untuk menghasilkan pewarnaan.</div>', unsafe_allow_html=True)
     # Tampilkan gambar di tengah
-    st.markdown('<div class="center-image"><img src="gambaranUmum.png" width="500"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="center-image"><img src="https://raw.githubusercontent.com/Akmdrhannn/tesStreamlit/main/gambaranUmum.png" width="500"></div>', unsafe_allow_html=True)
     
-    st.write("Silahkan upload citra atau gambar grayscale yang akan diwarnai oleh model GAN.")
+    st.write("Silahkan upload citra atau gambar grayscale yang akan diwarnai oleh model CGAN.")
     
     # Upload gambar
     uploaded_file = st.file_uploader("Pilih gambar grayscale", type=["jpg", "jpeg", "png"])
