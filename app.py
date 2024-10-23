@@ -73,7 +73,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.title("Pewarnaan Citra Grayscale Menggunakan CGAN")
+    st.title("Pewarnaan Citra Pemandangan Grayscale Menggunakan CGAN")
     
     # Teks deskripsi
     st.markdown('<div class="justified-text"> Conditional Generative Adversarial Networks (CGAN) adalah metode yang menjadikan sebuah masukan atau input-nya seperti sebuah kondisi. Merujuk pada Conditional, kondisi tersebut dapat digunakan terhadap generator atau discriminator sesuai kebutuhan pengguna sehingga CGAN dapat menghasilkan data buatan yang diinginkan menggunakan kondisi yang spesifik atau telah ditentukan sebelumnya. Pada penelitian ini, kondisi tersebut ialah citra grayscale yang menjadi syarat dalam pelatihan model untuk menghasilkan pewarnaan.</div>', unsafe_allow_html=True)
